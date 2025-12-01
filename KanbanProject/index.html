@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KanbanTasks</title>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="icon" type="imagex/png" sizes="16x16" href="./Imgs/BDLogo_Ico.ico">
+</head>
+<body>
+    <header>
+        <div class="HeaderContainer">
+            <div class="logo"><img  src="./Imgs/KBLogo_preto.webp" alt=""></div>
+            <div class="nmLogo"><h1>KanbanTasks</h1></div>
+            <div class="login"><h3><a href="./Login.html">Login</a></h3></div>
+        </div>
+    </header>
+    <main>
+        <div class="MainContainer">
+          
+            <div class="aFazerTask"><h2>➤ A ser feito <a href=""><img src="./Imgs/PlusImg.webp" alt="PlusImg"></a></h2></div>
+            <div class="tasksASeremFeitas">
+                <div class="todoline">
+                    <div class="todoTitle"><h2><input class="todoTituloInput" type="text" placeholder="Titúlo..."></h2></div>
+                    <div class="todoFlagDiv"><img class="todoFlag" src="./Imgs/whiteFlag.png" alt="flag">
+                        <div class="flags">
+                            <img src="./Imgs/GreenFlag.png" alt="GreenFlag">
+                            <img src="./Imgs/RedFlag.webp" alt="GreenFlag">
+                            <img src="./Imgs/YellowFlag.webp" alt="GreenFlag">
+                        </div>
+                    </div>
+                </div>
+                <div class="todoDescription"><div class="todoDescriptionInput" contenteditable="true"></div></div>
+                <div class="todoValidade"><input type="date" id="data" /></div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./Js/index.js"></script>
+</body>
+</html>
