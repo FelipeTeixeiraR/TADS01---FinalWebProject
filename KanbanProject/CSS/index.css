@@ -183,3 +183,25 @@ body{
 .next:hover{
     transform: scale(1.1);
 }
+.sobre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 1px 1px 1px;
+    height: 60px;
+    width: 99%;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 4px 1px rgb(128, 115, 88);
+    
+    border-radius: 7px;
+    margin-top: 150px;
+}
+.copyr{
+   
+   
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+    text-align: center;
+    
+    color: #dbdbdb;
+}
