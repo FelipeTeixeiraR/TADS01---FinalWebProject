@@ -9,7 +9,6 @@ body{
 .HeaderContainer{
     display: flex;
     margin: 5px 1px 1px 1px;
-    
     height: 80px;
     width: 99%;
     background-color: rgb(243, 242, 242);
@@ -17,6 +16,7 @@ body{
     justify-self: center;
     border-radius: 7px;
 }
+
 .logo{display: flex; padding: 13px;}
 .imgLogo{width: 70px; height: 70px;}
 .nmLogo{color: #000000;}
@@ -27,15 +27,28 @@ body{
     padding-right: 40px;
     font-size: 20px;
     align-self: center;
-}.login a{text-decoration: none;color: #222222;}
+}
 
-.aFazerTask{
+.login a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.aFazerTask, .aFazerTask2, .aFazerTask3{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     margin-top: 40px;
+    
     margin-left: 100px;
-}.aFazerTask img{width: 20px; opacity: 0.6; padding-left: 5px;}
-.tasksASeremFeitas{
+}
+
+.aFazerTask img, .aFazerTask2 img, .aFazerTask3 img{
+    width: 20px;
+    opacity: 0.6;
+    padding-left: 5px;
+}
+
+.task{
     margin-bottom: 20px;
     display: flex;
     margin-left: 10%;
@@ -44,66 +57,129 @@ body{
     width: 80%;
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: auto;
     color: #747272;
+    position: relative;
+    margin-bottom: 30px;
 }
-.todoline{display: flex;  flex-direction: row;}
-.todoTitle{margin-top: -13px; margin-left: 10px; max-width: 90%; overflow: hidden;max-height: 60px; margin-bottom: 8px;}
-.todoTituloInput{border: none;outline: none;background: transparent; font-size: 24px; width: 1000px;border: none;}
-.todoFlag{width: 20px; margin-top: 8px;transition: transform 0.25s ease;}
-.todoFlagDiv{margin-left: auto; margin-right: 8px;position: relative;}
+
+.todoline{
+    display: flex;
+    flex-direction: row;
+}
+
+.todoTitle{
+    margin-top: -13px;
+    margin-left: 10px;
+    max-width: 90%;
+    overflow: hidden;
+    max-height: 60px;
+    margin-bottom: 8px;
+}
+
+.todoTituloInput{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 24px;
+    width: 1000px;
+}
+
+.todoFlag{
+    width: 20px;
+    margin-top: 8px;
+    transition: transform 0.25s ease;
+}
+
+.todoFlagDiv{
+    margin-left: auto;
+    margin-right: 8px;
+    position: relative;
+}
+
 .flags{
     display: none;
     transition: transform 0.20s ease;
     position: absolute;
     top: 30px;
-    right: 22px;  
+    right: 20px;
     margin-top: -21px;
     width: auto;
     height: auto;
     padding-right: 10px;
-    
 }
+
 .flags img{
     width: 20px;
     height: 30px;
     margin-left: 8px;
     padding-left: 1px;
-    
-
-
 }
+
 .flags img:hover{
     transform: scale(1.08);
 }
+
 .todoFlagDiv:hover .flags{
     display: grid;
     grid-template-columns: repeat(3, auto);
-    
-    
 }
+
 .todoFlag:hover{
-    
     transform: scale(1.08);
-    
 }
 
-.todoDescription{margin-top: -10px; margin-left: 20px; margin-right: 20px;}
+.todoDescription{
+    margin-top: -10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .todoDescriptionInput{
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 17px;
-  color: #000000;
-  width: 90%;
-  overflow: hidden;
-  resize: none;
-  line-height: 1.2;
-}
-.todoDescriptionInput:empty::before {
-  content: "Pequena descrição...";
-  color: #888;
-  pointer-events: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 17px;
+    color: #000000;
+    width: 90%;
+    overflow: hidden;
+    resize: none;
+    line-height: 1.2;
 }
 
-.todoValidade{margin-left: auto; margin-right: 8px;}
+.todoDescriptionInput:empty::before {
+    content: "Pequena descrição...";
+    color: #888;
+    pointer-events: none;
+}
+
+.todoValidade{
+    margin-left: auto;
+    margin-right: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.trash{
+    position: absolute;
+    width: 22px;
+    margin-top: 15px;
+    margin-left: -32px;
+    
+    transition: transform 0.20s ease;
+}
+
+.trash:hover{
+    transform: scale(1.1);
+}
+
+.next{
+    width: 22px;
+    position: absolute;
+    margin-left: -32px;
+    margin-top: 50px;
+    transition: transform 0.20s ease;
+}
+
+.next:hover{
+    transform: scale(1.1);
+}

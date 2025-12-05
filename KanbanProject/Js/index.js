@@ -1,68 +1,76 @@
-// ---------------------------
-// Mostrar data escolhida
-// ---------------------------
-const input = document.getElementById("data");
-const texto = document.getElementById("dataEscolhida");
+// index.js totalmente funcional - KanbanTasks
 
-if (input && texto) {
-    input.addEventListener("change", () => {
-        texto.textContent = input.value;
-    });
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-
-
-// ---------------------------
-// Clonar tasks
-// ---------------------------
-
-// 1. botão de adicionar
-const addBtn = document.querySelector('.aFazerTask img');
-
-// 2. template da primeira task
-const template = document.querySelector('.tasksASeremFeitas');
-
-// 3. container geral
-const container = document.querySelector('.MainContainer');
-
-
-addBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // evita reload
-
-    // clona a task inteira
-    const clone = template.cloneNode(true);
-
-    // limpa inputs
-    clone.querySelector('.todoTituloInput').value = "";
-    clone.querySelector('.todoDescriptionInput').innerText = "";
-    clone.querySelector('#data').value = "";
-
-    // --- RESETAR BANDEIRA PARA BRANCA ---
-    clone.querySelector('.todoFlag').src = "./Imgs/whiteFlag.png";
-
-    // adiciona ao container
-    container.appendChild(clone);
-});
-
-
-
-// ---------------------------
-// Delegação de eventos das bandeiras
-// ---------------------------
-document.addEventListener("click", function(e) {
-
-    // verifica se clicou numa bandeira pequena
-    if (e.target.matches(".flags img")) {
-
-        const clickedFlag = e.target;
-
-        // sobe até o bloco da tarefa
-        const flagDiv = clickedFlag.closest(".todoFlagDiv");
-
-        // bandeira principal daquela tarefa
-        const mainFlag = flagDiv.querySelector(".todoFlag");
-
-        // troca a bandeira apenas nessa tarefa
-        mainFlag.src = clickedFlag.src;
+    // =====================
+    // Função: encontrar duplicata (TEMPLATE)
+    // =====================
+    function getTemplate(container) {
+        return container.querySelector(".task");
     }
+
+    // =====================
+    // Função: próxima coluna
+    // =====================
+    function getNextColumn(container) {
+        if (container.classList.contains("MainContainer1"))
+            return document.querySelector(".MainContainer2");
+        if (container.classList.contains("MainContainer2"))
+            return document.querySelector(".MainContainer3");
+        return null; // Em concluído não avança
+    }
+
+    // =====================
+    // Criar nova tarefa
+    // =====================
+    document.querySelectorAll(".MainContainer1, .MainContainer2, .MainContainer3").forEach(container => {
+
+        const addBtn = container.querySelector("a img");
+        const template = getTemplate(container);
+
+        addBtn.addEventListener("click", e => {
+            e.preventDefault();
+
+            const clone = template.cloneNode(true);
+
+            // Zerar campos do clone
+            clone.querySelector(".todoTituloInput").value = "";
+            clone.querySelector(".todoDescriptionInput").innerText = "";
+            clone.querySelector("input[type='date']").value = "";
+            clone.querySelector(".todoFlag").src = "./Imgs/whiteFlag.png";
+
+            container.appendChild(clone);
+        });
+    });
+
+    // =====================
+    // Delegação de eventos
+    // =====================
+    document.addEventListener("click", e => {
+
+        // --------------------- TROCAR BANDEIRA
+        if (e.target.matches(".flags img")) {
+            const flagDiv = e.target.closest(".todoFlagDiv");
+            const mainFlag = flagDiv.querySelector(".todoFlag");
+            mainFlag.src = e.target.src;
+        }
+
+        // --------------------- APAGAR TAREFA
+        if (e.target.classList.contains("trash")) {
+            e.target.closest(".task").remove();
+        }
+
+        // --------------------- AVANÇAR TAREFA
+        if (e.target.classList.contains("next")) {
+
+            const task = e.target.closest(".task");
+            const currentColumn = task.closest(".MainContainer1, .MainContainer2, .MainContainer3");
+
+            const nextColumn = getNextColumn(currentColumn);
+            if (nextColumn) {
+                nextColumn.appendChild(task);
+            }
+        }
+    });
+
 });
