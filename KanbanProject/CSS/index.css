@@ -1,0 +1,210 @@
+body{
+    margin: 0 auto;
+    height: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-height: 500px;
+    background-color: #202020;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.HeaderContainer{
+    display: flex;
+    margin: 5px 1px 1px 1px;
+    height: 80px;
+    width: 99%;
+    background-color: rgb(243, 242, 242);
+    box-shadow: 0px 0px 4px 1px rgb(128, 115, 88);
+    justify-self: center;
+    border-radius: 7px;
+}
+
+.logo{display: flex; padding: 13px;}
+.imgLogo{width: 70px; height: 70px;}
+.nmLogo{color: #000000;}
+
+.login{
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: auto;
+    padding-right: 40px;
+    font-size: 20px;
+    align-self: center;
+}
+
+.login a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.aFazerTask, .aFazerTask2, .aFazerTask3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.aFazerTask img, .aFazerTask2 img, .aFazerTask3 img{
+    width: 20px;
+    opacity: 0.6;
+    padding-left: 5px;
+}
+
+.task{
+    margin-bottom: 20px;
+    display: flex;
+    margin-left: 10%;
+    border-radius: 7px;
+    background-color: white;
+    width: 80%;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #747272;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.todoline{
+    display: flex;
+    flex-direction: row;
+}
+
+.todoTitle{
+    margin-top: -13px;
+    margin-left: 10px;
+    max-width: 90%;
+    overflow: hidden;
+    max-height: 60px;
+    margin-bottom: 8px;
+}
+
+.todoTituloInput{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 24px;
+    width: 1000px;
+}
+
+.todoFlag{
+    width: 20px;
+    margin-top: 8px;
+    transition: transform 0.25s ease;
+}
+
+.todoFlagDiv{
+    margin-left: auto;
+    margin-right: 8px;
+    position: relative;
+}
+
+.flags{
+    display: none;
+    transition: transform 0.20s ease;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    margin-top: -21px;
+    width: auto;
+    height: auto;
+    padding-right: 10px;
+}
+
+.flags img{
+    width: 20px;
+    height: 30px;
+    margin-left: 8px;
+    padding-left: 1px;
+}
+
+.flags img:hover{
+    transform: scale(1.08);
+}
+
+.todoFlagDiv:hover .flags{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.todoFlag:hover{
+    transform: scale(1.08);
+}
+
+.todoDescription{
+    margin-top: -10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.todoDescriptionInput{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 17px;
+    color: #000000;
+    width: 90%;
+    overflow: hidden;
+    resize: none;
+    line-height: 1.2;
+}
+
+.todoDescriptionInput:empty::before {
+    content: "Pequena descrição...";
+    color: #888;
+    pointer-events: none;
+}
+
+.todoValidade{
+    margin-left: auto;
+    margin-right: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.trash{
+    position: absolute;
+    width: 22px;
+    margin-top: 15px;
+    margin-left: -32px;
+    transition: transform 0.20s ease;
+}
+
+.trash:hover{
+    transform: scale(1.1);
+}
+
+.next{
+    width: 22px;
+    position: absolute;
+    margin-left: -32px;
+    margin-top: 50px;
+    transition: transform 0.20s ease;
+}
+
+.next:hover{
+    transform: scale(1.1);
+}
+
+.sobre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 4px 1px rgb(128, 115, 88);
+    border-radius: 7px 7px 0 0;
+    margin-top: 230px;
+    bottom: 0;
+    left: 0;
+}
+
+.copyr{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: #dbdbdb;
+}
