@@ -1,26 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // =====================
-    // Função: encontrar duplicata (TEMPLATE)
-    // =====================
+
     function getTemplate(container) {
         return container.querySelector(".task");
     }
 
-    // =====================
-    // Função: próxima coluna
-    // =====================
+
     function getNextColumn(container) {
         if (container.classList.contains("MainContainer1"))
             return document.querySelector(".MainContainer2");
         if (container.classList.contains("MainContainer2"))
             return document.querySelector(".MainContainer3");
-        return null; // Em concluído não avança
+        return null; 
     }
 
-    // =====================
-    // Criar nova tarefa
-    // =====================
+
     document.querySelectorAll(".MainContainer1, .MainContainer2, .MainContainer3").forEach(container => {
 
         const addBtn = container.querySelector("a img");
@@ -40,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // =====================
-    // Delegação de eventos
-    // =====================
+ 
     document.addEventListener("click", e => {
 
         if (e.target.matches(".flags img")) {
@@ -67,9 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // =====================
-    // CARREGAR TAREFAS
-    // =====================
+ 
     const salvos = JSON.parse(localStorage.getItem("kanban_tasks")) || [];
 
     salvos.forEach(t => {
@@ -92,9 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(clone);
     });
 
-    // =====================
-    // SALVAR TAREFAS
-    // =====================
+
     let contadorID = Number(localStorage.getItem("kanban_id_counter")) || 1;
 
     const btnSalvar = document.getElementById("btnSalvar");
